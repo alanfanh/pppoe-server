@@ -1,0 +1,6 @@
+__pycache__
+.svn
+
+# 过滤文件
+*.pcap
+*.pyc
