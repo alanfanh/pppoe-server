@@ -10,7 +10,7 @@ import random
 import binascii
 import wmi
 import IPy
-from PySide6 import QtCore,QtGui
+from PySide6 import QtCore, QtGui, QtWidgets
 from PySide6.QtCore import SIGNAL
 from PySide6.QtWidgets import QWidget,QApplication  
 from common.gui import Ui_Form
@@ -1164,7 +1164,7 @@ class Form(QWidget):
         self.config=readcfg()
         print("config",self.config)
         if flag:
-            QtGui.QMessageBox.information(self,"savecfg","saved ok",QtGui.QMessageBox.Yes)
+            QtWidgets.QMessageBox.information(self,"savecfg","saved ok",QtWidgets.QMessageBox.Yes)
 
     def init_cfg(self):
         self.config=readcfg()
