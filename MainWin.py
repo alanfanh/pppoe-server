@@ -1043,8 +1043,10 @@ class Form(QWidget):
         self.init_ser_error()
         self.init_cfg()
         self.init_uioption()
-        self.connect(self.ui.hw_save,SIGNAL("clicked()"),self.savecfg)
-        self.connect(self.ui.hw_start,SIGNAL("clicked()"),self.startserver)
+        # self.connect(self.ui.hw_start,SIGNAL("clicked()"),self.startserver)
+        # 使用控件的clicked信号连接槽函数
+        self.ui.hw_start.clicked.connect(self.startserver)
+        self.ui.hw_save.clicked.connect(self.savecfg)
         self.runthread = RunThread(self)
         
     def get_inface(self):
@@ -1054,7 +1056,7 @@ class Form(QWidget):
             print('run program in Linux')
             # ifacelist=[]
             ifacedict = {}
-            for x in xrange(30):
+            for x in range(30):
                 try:
                     iface="eth%s" %(x)
                     obj=dnet.eth(iface)
